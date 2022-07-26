@@ -18,7 +18,7 @@ import org.ros2.rcljava.timer.WallTimer;
  */
 public class HavelsanPublisher extends BaseComposableNode {
 
-    private int count;
+
 
     private Publisher<std_msgs.msg.String> publisher;
 
@@ -26,18 +26,28 @@ public class HavelsanPublisher extends BaseComposableNode {
 
     public HavelsanPublisher() {
         super("minmal_publisher");
-        this.count = 0;
         // Publishers are type safe, make sure to pass the message type
         this.publisher = node.<std_msgs.msg.String>createPublisher(std_msgs.msg.String.class, "topic");
-        Scanner myObj = new Scanner(System.in);  // Create a Scanner object
+        Scanner scanner = new Scanner(System.in);  // Create a Scanner object
         
         Callback timerCallback = () -> {
             std_msgs.msg.String message = new std_msgs.msg.String();
+            System.out.println("Lutfen islemi seciniz :\n1- Kayit Baslat\n2- Kayit Durdur\n3- Çık\n");
+            
+            String input = scanner.nextLine();
 
-            String userName = myObj.nextLine();
-            message.setData("Havelsan Test " + userName);
-            this.count++;
-            System.out.println("Publishing: [" + message.getData() + "]");
+            if(input == "3"){
+                System.out.println("ok");
+            }
+            else if (input == "2"){
+                message.setData("dur");
+            }
+            else if(input == "1"){
+                message.setData("baslat");
+            }
+            
+            
+            System.out.println("Mesaj : [" + message.getData() + "]");
             this.publisher.publish(message);
         };
         this.timer = node.createWallTimer(500, TimeUnit.MILLISECONDS, timerCallback);

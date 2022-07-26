@@ -30,7 +30,9 @@ ament {
             'havelsan_pub = org.ros2.rcljava.havelsanros2.havelsanpub.HavelsanPublisher',
             'havelsan_sub = org.ros2.rcljava.havelsanros2.havelsansub.HavelsanSubscriber',
             'storage_pub = org.ros2.rcljava.havelsanros2.storagepub.StoragePublisher',
-            'storage_sub = org.ros2.rcljava.havelsanros2.storagesub.StorageSubscriber'
+            'deneme = org.ros2.rcljava.havelsanros2.storagepub.Deneme',
+            'storage_sub = org.ros2.rcljava.havelsanros2.storagesub.StorageSubscriber',
+            'denemesub = org.ros2.rcljava.havelsanros2.storagesub.DenemeSub'
             
             ]
     }
