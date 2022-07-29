@@ -1,5 +1,7 @@
 package org.ros2.rcljava.havelsanros2.actionsub;
 
+import org.ros2.rcljava.havelsanros2.actiondate.ActionDate;
+
 import org.ros2.rcljava.RCLJava;
 import org.ros2.rcljava.consumers.Consumer;
 import org.ros2.rcljava.node.BaseComposableNode;
@@ -14,9 +16,11 @@ public class ActionSubscriber extends BaseComposableNode {
     super("minimal_subscriber");
     subscription = node.<havelsan_msgs.msg.Action>createSubscription(havelsan_msgs.msg.Action.class, "action",
         msg -> {
-            System.out.println("Gönderen     : " + msg.getSender());
-            System.out.println("Kayıt Türü   : " + msg.getRecordType());
-            System.out.println("Kayıt Komutu : " + msg.getCommand());
+            System.out.println("Gönderen          : " + msg.getSenderId());
+            System.out.println("İşlem İsmi        : " + msg.getActionName());
+            System.out.println("İşlem             : " + msg.getAction());
+            System.out.println("İşlem Özellikleri : " + msg.getActionProperties());
+            System.out.println("İşlem Tarih       : " + ActionDate.longToStringDate(msg.getDate()));
             System.out.println("------------------------------------------------");
             
         });

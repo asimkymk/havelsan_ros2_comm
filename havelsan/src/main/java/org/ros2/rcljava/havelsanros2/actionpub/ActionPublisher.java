@@ -4,6 +4,8 @@
  */
 package org.ros2.rcljava.havelsanros2.actionpub;
 
+import org.ros2.rcljava.havelsanros2.actiondate.ActionDate;
+
 import java.util.concurrent.TimeUnit;
 import java.util.Scanner;
 
@@ -50,27 +52,32 @@ public class ActionPublisher extends BaseComposableNode {
 
             if(record_type == 1){
                 
-                message.setRecordType("console");
+                message.setActionName("console");
             }
             else if (record_type == 2){
                 
-                message.setRecordType("display");
+                message.setActionName("display");
             }
             
             if(command_type == 1){
-                message.setCommand("start");
+                message.setAction("start");
                 
             }
             else if (command_type == 2){
                 
-                message.setCommand("stop");
+                message.setAction("stop");
             }
             else if(command_type == 3){
-                message.setCommand("save");
+                message.setAction("save");
                 
             }
-            message.setSender(this.identity);
-
+            System.out.println("Kayit özelliklerinizi giriniz : \n");
+            String action_properties;
+            scanner.nextLine();
+            action_properties = scanner.nextLine();
+            message.setSenderId(this.identity);
+            message.setDate(ActionDate.dateToLong());
+            message.setActionProperties(action_properties);
             
             
             //System.out.println("Mesaj : [" + message.getData() + "]");
