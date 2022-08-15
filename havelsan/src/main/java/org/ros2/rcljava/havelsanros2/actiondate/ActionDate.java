@@ -19,25 +19,23 @@ public class ActionDate {
         LocalDateTime now = LocalDateTime.now();
         return Long.parseLong(dtf.format(now));
     }
-    
-    public static String longToStringDate(long longDate){
+
+    public static String longToStringDate(Object longDate) {
         String converted_date = String.valueOf(longDate);
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
         LocalDateTime custom_date;
-        if(converted_date.length() == 12){
-            custom_date = LocalDateTime.of(Integer.parseInt(converted_date.substring(8,12)),
-                                            Integer.parseInt(converted_date.substring(6, 8)),
-                                             Integer.parseInt(converted_date.substring(4, 6)),
-                                             Integer.parseInt(converted_date.substring(0, 2)),
-                                             Integer.parseInt(converted_date.substring(2,4)));
+        String temp = "";
+        for (int i = 0; i < 12 - converted_date.length(); i++) {
+            temp += "0";
         }
-        else{
-            custom_date = LocalDateTime.of(Integer.parseInt(converted_date.substring(7,11)),
-                                            Integer.parseInt(converted_date.substring(5, 7)),
-                                             Integer.parseInt(converted_date.substring(3, 5)),
-                                             Integer.parseInt(converted_date.substring(0, 1)),
-                                             Integer.parseInt(converted_date.substring(1,3)));
-        }
+        converted_date = temp + converted_date;
+
+        custom_date = LocalDateTime.of(Integer.parseInt(converted_date.substring(8, 12)),
+                Integer.parseInt(converted_date.substring(6, 8)),
+                Integer.parseInt(converted_date.substring(4, 6)),
+                Integer.parseInt(converted_date.substring(0, 2)),
+                Integer.parseInt(converted_date.substring(2, 4)));
+
         return dtf.format(custom_date);
     }
     
