@@ -19,8 +19,8 @@ public class ActionDate {
         LocalDateTime now = LocalDateTime.now();
         return Long.parseLong(dtf.format(now));
     }
-
-    public static String longToStringDate(Object longDate) {
+    
+    public static String longToStringDate(long longDate){
         String converted_date = String.valueOf(longDate);
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
         LocalDateTime custom_date;

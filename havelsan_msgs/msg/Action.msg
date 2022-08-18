@@ -3,3 +3,4 @@ string action_name
 string action
 string action_properties
 uint64 date
+string empty_area

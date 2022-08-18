@@ -27,8 +27,6 @@ repositories {
 ament {
     entryPoints {
         consoleScripts = [
-            'havelsan_pub = org.ros2.rcljava.havelsanros2.havelsanpub.HavelsanPublisher',
-            'havelsan_sub = org.ros2.rcljava.havelsanros2.havelsansub.HavelsanSubscriber',
             'status_pub = org.ros2.rcljava.havelsanros2.statuspub.StatusPublisher',
             'status_sub = org.ros2.rcljava.havelsanros2.statussub.StatusSubscriber',
             'action_pub = org.ros2.rcljava.havelsanros2.actionpub.ActionPublisher',

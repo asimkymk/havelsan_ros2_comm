@@ -15,13 +15,15 @@ public class Action {
     private String action;
     private String action_properties;
     private long date;
+    private String empty_area;
 
-    public Action(String sender_id, String action_name, String action, String action_properties, long date) {
+    public Action(String sender_id, String action_name, String action, String action_properties, long date, String empty_area) {
         this.sender_id = sender_id;
         this.action_name = action_name;
         this.action = action;
         this.action_properties = action_properties;
         this.date = date;
+        this.empty_area = empty_area;
     }
     
     public Action() {};
@@ -64,6 +66,14 @@ public class Action {
 
     public void setDate(long date) {
         this.date = date;
+    }
+    
+    public String getEmpty_area(){
+        return empty_area;
+    }
+
+    public void setEmpty_area(String empty_area){
+        this.empty_area = empty_area;
     }
     
     

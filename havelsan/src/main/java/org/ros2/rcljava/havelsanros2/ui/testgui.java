@@ -5,9 +5,11 @@
 package org.ros2.rcljava.havelsanros2.ui;
 
 import java.io.File;
-import org.ros2.rcljava.havelsanros2.testCases.TestCases;
-import org.ros2.rcljava.havelsanros2.models.Status;
+import java.util.Arrays;
+import java.util.List;
 import javax.swing.JFrame;
+import org.ros2.rcljava.havelsanros2.models.Status;
+import org.ros2.rcljava.havelsanros2.publishers.StatusPubs;
 
 /**
  *
@@ -21,6 +23,7 @@ public class testgui extends javax.swing.JPanel {
     public testgui() {
         initComponents();
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -76,9 +79,8 @@ public class testgui extends javax.swing.JPanel {
         Boolean[] consoleRecordStatus = new Boolean[] {true, false, true}; // konsol durum
         Boolean[] displayRecordStatus = new Boolean[] {true, true, true};
         Status status = new Status(totalCapacity,freePartitionSpace,usablePatitionSpace,systemLiveStatus,consoleRecordStatus,displayRecordStatus);
-        TestCases testCases = new TestCases();
+        StatusPubs testCases = new StatusPubs();
         testCases.publishTest(status);
-        
     }//GEN-LAST:event_jButton1MouseClicked
 
     public static void main(String[] args) {
